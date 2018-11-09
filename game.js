@@ -1,5 +1,5 @@
 // program data:
-var number = 8;
+var number = Math.floor(Math.random() * 100);
 var guess;
 var limit = 5;
 var remaining = limit;
@@ -21,10 +21,9 @@ for (i = 0; i < limit; i++) {
     // prompt user for their guess
 
     do {
-        guess = window.prompt("Guess a number!");
-        guess = Number(guess);
+        guess = parseInt(window.prompt("Guess a number!"));
         previous = isPreviousGuess();
-    } while (previous === true);
+    } while (previous === true || isNaN(guess));
 
     // if correct: let the user know they won
     
@@ -42,5 +41,5 @@ for (i = 0; i < limit; i++) {
 }
 
 if (!won) {
-    document.write("Better luck next time!");
+    document.write("Better luck next time! The correct number was: " + number);
 }
